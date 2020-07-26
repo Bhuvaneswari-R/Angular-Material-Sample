@@ -1,0 +1,52 @@
+<div>
+    <h1>{{title}}</h1>
+
+    <p>
+    <mat-label>Name :</mat-label>
+    <mat-form-field>    
+        <input matInput required pattern = "[A-Za-z]" type ="text" placeholder="Enter your Name">
+    </mat-form-field>
+    </p>
+    <p>
+        <mat-label>DOB :</mat-label>
+        <mat-form-field>            
+            <input matInput  [max]="maxDate" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </p>
+  
+    <mat-label>Preferences : </mat-label>
+    <section class="example-section">
+        <span class="example-list-section">
+        <ul>
+            <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [(ngModel)]="subtask.completed"
+                            [color]="subtask.color"
+                            (ngModelChange)="updateAllComplete()">
+                {{subtask.name}}
+            </mat-checkbox>
+            </li>
+        </ul>
+        </span>
+    </section>
+   
+    <p> 
+        <mat-label>Salary : </mat-label>
+        <mat-slider min="10L" max="100L" step="1" value="1"></mat-slider>
+    </p>
+    <p>
+    <mat-label>Gender : </mat-label>
+    <mat-radio-group>
+    <mat-radio-button class ="example-margin" value="1">Male </mat-radio-button>
+    <mat-radio-button class ="example-margin" value="2">Female</mat-radio-button>
+    </mat-radio-group>
+    </p>
+    <p>
+    <button mat-button (click)="onSubmit()">Submit</button>
+    </p>
+    <div>
+        
+       
+    </div>
+</div>

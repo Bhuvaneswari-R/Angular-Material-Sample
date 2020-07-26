@@ -1,0 +1,13 @@
+{
+    "responseCode": 200,
+    "message": "OK",
+    "status": "SUCCESS",
+    "ticket": "ASTCNEDBPIIUS1BSX832M0",
+    "data": {
+        "Name": "Sample",
+        "DOB": "12/12/2020",
+        "Gender": "Male",        
+        "Preferences": ["Sports", "Music"],
+        "Salary": "25L"
+    }
+}
