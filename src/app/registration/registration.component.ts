@@ -16,7 +16,7 @@ export interface Task {
 
 export class RegistrationFormComponent {
   maxDate: Date;
-    title = 'Angular Task';
+    title = 'Registration Form';
   task: Task = {
     name: 'Preferences',
     completed: false,
