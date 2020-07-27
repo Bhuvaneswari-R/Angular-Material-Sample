@@ -6,8 +6,11 @@
     "data": {
         "Name": "Sample",
         "DOB": "12/12/2020",
+        "Country": "India",
         "Gender": "Male",        
         "Preferences": ["Sports", "Music"],
-        "Salary": "25L"
+        "Salary": "25L",
+        "Marks": [82, 75, 100, 87, 80],
+        "Profile": "90%"
     }
 }

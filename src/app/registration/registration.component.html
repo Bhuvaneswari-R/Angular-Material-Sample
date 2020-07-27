@@ -1,21 +1,31 @@
 <div>
     <h1>{{title}}</h1>
-
+    <form>
     <p>
     <mat-label>Name :</mat-label>
     <mat-form-field>    
-        <input matInput required pattern = "[A-Za-z]" type ="text" placeholder="Enter your Name">
+        <input matInput required pattern = "[A-Za-z]+" type ="text"  placeholder="Enter your Name" ngModel>
     </mat-form-field>
     </p>
     <p>
         <mat-label>DOB :</mat-label>
         <mat-form-field>            
-            <input matInput  [max]="maxDate" [matDatepicker]="picker">
+            <input matInput  [max]="maxDate" [matDatepicker]="picker" >
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
     </p>
   
+ <p>
+    <mat-label>Country : </mat-label>
+<mat-form-field>
+  <mat-select>
+    <mat-option *ngFor="let country of countries" [value]="country.value">
+      {{ country.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</p>
     <mat-label>Preferences : </mat-label>
     <section class="example-section">
         <span class="example-list-section">
@@ -37,16 +47,30 @@
     </p>
     <p>
     <mat-label>Gender : </mat-label>
-    <mat-radio-group>
-    <mat-radio-button class ="example-margin" value="1">Male </mat-radio-button>
-    <mat-radio-button class ="example-margin" value="2">Female</mat-radio-button>
+        <mat-radio-group>
+        <mat-radio-button class ="example-margin" value="1">Male </mat-radio-button>
+        <mat-radio-button class ="example-margin" value="2">Female</mat-radio-button>
     </mat-radio-group>
     </p>
-    <p>
-    <button mat-button (click)="onSubmit()">Submit</button>
-    </p>
-    <div>
-        
-       
+
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef> Subject </th>
+            <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+          </ng-container>
+          <ng-container matColumnDef="score">
+            <th mat-header-cell *matHeaderCellDef> Marks </th>
+            <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    <div class="progress" style="width: 25%;">
+        <mat-progress-bar mode="determinate" value="90"></mat-progress-bar>
     </div>
+    <p>
+        <button mat-button [class.spinner]="loading" (click)="onClickSubmit()">Submit</button>
+    </p>  
+</form>  
 </div>

@@ -11,8 +11,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { RegistrationFormComponent } from './registration/registration.component';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -32,7 +35,15 @@ import { HttpClientModule } from '@angular/common/http';
     MatRadioModule,
     MatNativeDateModule, 
     MatRippleModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatTableModule,
+    MatProgressBarModule
+  ],
+  exports: [
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent, RegistrationFormComponent]
